@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PUNYA SASIT HAREN - BUKTI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-red: #dc2626;
+            --secondary-red: #b91c1c;
+            --accent-red: #ef4444;
+            --dark-red: #7f1d1d;
+            --darker-red: #450a0a;
+            --light-red: #991b1b;
+            --text-color: #f8fafc;
+            --success-color: #10b981;
+            --danger-color: #ef4444;
+            --warning-color: #f59e0b;
+            --gold-color: #fbbf24;
+            --shadow: 0 8px 30px rgba(220, 38, 38, 0.15);
+            --radius: 12px;
+            --glow: 0 0 30px rgba(220, 38, 38, 0.3);
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f0a0a 0%, #1a0f0f 50%, #450a0a 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: var(--text-color);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .fire-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(220, 38, 38, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(185, 28, 28, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(239, 68, 68, 0.1) 0%, transparent 50%);
+            z-index: -1;
+            animation: firePulse 8s ease-in-out infinite;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle 5s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes firePulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 0.9; }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            background: rgba(127, 29, 29, 0.85);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            animation: fadeIn 0.8s ease;
+            border: 1px solid rgba(220, 38, 38, 0.2);
+            backdrop-filter: blur(20px);
+            position: relative;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, transparent, var(--primary-red), var(--accent-red), transparent);
+            z-index: 10;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--darker-red), var(--dark-red));
+            color: var(--text-color);
+            padding: 30px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(220, 38, 38, 0.3);
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            position: relative;
+            background: linear-gradient(135deg, var(--primary-red), var(--accent-red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(220, 38, 38, 0.3);
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 1rem;
+            position: relative;
+            color: #cbd5e1;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .header-icon {
+            font-size: 1.8rem;
+            margin-right: 10px;
+            background: linear-gradient(135deg, var(--primary-red), var(--accent-red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .upload-area {
+            border: 2px dashed rgba(220, 38, 38, 0.4);
+            border-radius: var(--radius);
+            padding: 20px 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            background: rgba(153, 27, 27, 0.5);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .upload-area::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.05), rgba(185, 28, 28, 0.05));
+            z-index: -1;
+        }
+
+        .upload-area.active {
+            border-color: var(--primary-red);
+            background: rgba(220, 38, 38, 0.1);
+            box-shadow: var(--glow);
+        }
+
+        .upload-area:hover {
+            background: rgba(220, 38, 38, 0.15);
+            border-color: var(--accent-red);
+            transform: translateY(-3px);
+        }
+
+        .upload-area i {
+            font-size: 2.2rem;
+            color: var(--accent-red);
+            margin-bottom: 12px;
+            filter: drop-shadow(0 0 10px rgba(220, 38, 38, 0.3));
+        }
+
+        .upload-area h3 {
+            color: var(--primary-red);
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .upload-area p {
+            color: #cbd5e1;
+            opacity: 0.9;
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        .paste-info {
+            background: rgba(251, 191, 36, 0.1);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            border-radius: 8px;
+            padding: 6px 10px;
+            margin-top: 12px;
+            color: var(--warning-color);
+            font-size: 0.75rem;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--primary-red), var(--secondary-red));
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+            background: linear-gradient(135deg, var(--accent-red), var(--primary-red));
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--accent-red), var(--primary-red));
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, var(--success-color), #059669);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, var(--danger-color), #dc2626);
+        }
+
+        .btn-warning {
+            background: linear-gradient(135deg, var(--warning-color), #d97706);
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold-color), #f59e0b);
+        }
+
+        .uploaded-images {
+            margin-top: 40px;
+        }
+
+        .uploaded-images-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(220, 38, 38, 0.3);
+        }
+
+        .uploaded-images h2 {
+            color: var(--primary-red);
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .image-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .image-item {
+            background: linear-gradient(145deg, rgba(153, 27, 27, 0.8), rgba(127, 29, 29, 0.9));
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            animation: slideIn 0.4s ease;
+            border: 1px solid rgba(220, 38, 38, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--primary-red), transparent);
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .image-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(220, 38, 38, 0.2);
+            border-color: rgba(220, 38, 38, 0.4);
+        }
+
+        .image-preview {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .image-item:hover .image-preview {
+            transform: scale(1.02);
+        }
+
+        .image-link {
+            display: flex;
+            align-items: center;
+            background: rgba(153, 27, 27, 0.6);
+            border-radius: 8px;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(220, 38, 38, 0.2);
+        }
+
+        .image-link input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            background: transparent;
+        }
+
+        .copy-btn {
+            background: transparent;
+            border: none;
+            color: var(--accent-red);
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            padding: 5px;
+            border-radius: 4px;
+        }
+
+        .copy-btn:hover {
+            background-color: rgba(239, 68, 68, 0.1);
+            color: var(--primary-red);
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        .actions button {
+            padding: 8px 15px;
+            font-size: 0.9rem;
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--primary-red), var(--secondary-red));
+            color: white;
+            padding: 15px 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transform: translateX(150%);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+            border-left: 3px solid var(--accent-red);
+            min-width: 280px;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification.error {
+            background: linear-gradient(135deg, var(--danger-color), #dc2626);
+            border-left-color: #ef4444;
+        }
+
+        .notification.warning {
+            background: linear-gradient(135deg, var(--warning-color), #d97706);
+            border-left-color: #f59e0b;
+        }
+
+        .notification.success {
+            background: linear-gradient(135deg, var(--success-color), #059669);
+            border-left-color: #10b981;
+        }
+
+        .progress-bar {
+            height: 3px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: white;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 50px 20px;
+            color: #94a3b8;
+            grid-column: 1 / -1;
+        }
+
+        .empty-state i {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--accent-red);
+            opacity: 0.7;
+        }
+
+        .empty-state p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        .new-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: linear-gradient(135deg, var(--gold-color), #f59e0b);
+            color: var(--darker-red);
+            padding: 5px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            animation: pulse-badge 2s infinite;
+            z-index: 2;
+            box-shadow: 0 2px 10px rgba(251, 191, 36, 0.3);
+        }
+
+        @keyframes pulse-badge {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            gap: 20px;
+        }
+
+        .stat-card {
+            flex: 1;
+            background: linear-gradient(135deg, rgba(153, 27, 27, 0.8), rgba(127, 29, 29, 0.9));
+            border-radius: var(--radius);
+            padding: 20px;
+            text-align: center;
+            border: 1px solid rgba(220, 38, 38, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(220, 38, 38, 0.2);
+        }
+
+        .stat-card i {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--primary-red);
+        }
+
+        .stat-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            color: var(--text-color);
+        }
+
+        .stat-card p {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+        }
+
+        /* Logo GIF Styles */
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo-gif {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-red);
+            box-shadow: 0 0 20px rgba(220, 38, 38, 0.5);
+            animation: logoGlow 3s infinite alternate;
+        }
+
+        @keyframes logoGlow {
+            0% { box-shadow: 0 0 20px rgba(220, 38, 38, 0.5); }
+            100% { box-shadow: 0 0 30px rgba(220, 38, 38, 0.8), 0 0 40px rgba(220, 38, 38, 0.6); }
+        }
+
+        @media (max-width: 768px) {
+            .image-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .uploaded-images-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .action-buttons {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .btn {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+            
+            .upload-area {
+                padding: 15px 10px;
+            }
+            
+            .stats-container {
+                flex-direction: column;
+            }
+            
+            .logo-gif {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="fire-bg"></div>
+    <div class="stars" id="stars"></div>
+    
+    <div class="container">
+        <div class="header">
+            <!-- Logo GIF -->
+            <div class="logo-container">
+                <img src="https://i.ibb.co/mLfqtbq/bae76a778381.gif" alt="Logo PUNYA SASIT HAREN" class="logo-gif">
+            </div>
+            
+            <h1><i class="fas fa-fire header-icon"></i> PUNYA SASIT HAREN</h1>
+            <p>PENDEKAR TVTOTO</p>
+        </div>
+        
+        <div class="content">
+            <div class="stats-container">
+                <div class="stat-card">
+                    <i class="fas fa-images"></i>
+                    <h3 id="totalImages">0</h3>
+                    <p>Total Gambar</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-clock"></i>
+                    <h3 id="todayUploads">0</h3>
+                    <p>Upload Hari Ini</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3 id="totalSize">0 MB</h3>
+                    <p>Total Ukuran</p>
+                </div>
+            </div>
+            
+            <!-- UPLOAD AREA DENGAN TEMA API -->
+            <div class="upload-area" id="uploadArea">
+                <i class="fas fa-fire"></i>
+                <h3>Upload Gambar</h3>
+                <p>Seret gambar atau klik untuk memilih file</p>
+                <div class="paste-info">
+                    <i class="fas fa-paste"></i> Ctrl+V untuk paste gambar
+                </div>
+                <button class="btn" id="browseBtn">
+                    <i class="fas fa-folder-open"></i> Pilih File
+                </button>
+                <input type="file" id="fileInput" multiple accept="image/*" class="hidden">
+            </div>
+            
+            <div class="uploaded-images" id="uploadedImages">
+                <div class="uploaded-images-header">
+                    <h2><i class="fas fa-images"></i> Gambar Uploaded</h2>
+                    <div class="action-buttons">
+                        <button class="btn btn-gold" id="copyAllBtn">
+                            <i class="fas fa-copy"></i> Salin Semua
+                        </button>
+                        <button class="btn btn-danger" id="deleteAllBtn">
+                            <i class="fas fa-trash"></i> Hapus Semua
+                        </button>
+                    </div>
+                </div>
+                <div class="image-list" id="imageList">
+                    <div class="empty-state" id="emptyState">
+                        <i class="fas fa-image"></i>
+                        <p>Belum ada gambar yang diupload</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notificationText">Link berhasil disalin!</span>
+        <div class="progress-bar">
+            <div class="progress" id="notificationProgress"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const uploadArea = document.getElementById('uploadArea');
+            const fileInput = document.getElementById('fileInput');
+            const browseBtn = document.getElementById('browseBtn');
+            const imageList = document.getElementById('imageList');
+            const emptyState = document.getElementById('emptyState');
+            const notification = document.getElementById('notification');
+            const notificationText = document.getElementById('notificationText');
+            const notificationProgress = document.getElementById('notificationProgress');
+            const copyAllBtn = document.getElementById('copyAllBtn');
+            const deleteAllBtn = document.getElementById('deleteAllBtn');
+            const totalImages = document.getElementById('totalImages');
+            const todayUploads = document.getElementById('todayUploads');
+            const totalSize = document.getElementById('totalSize');
+            const starsContainer = document.getElementById('stars');
+            
+            let uploadedImages = [];
+            const apiKey = '039d0b82abe696c78a2f6fd7f57bfdf2';
+            
+            // Membuat efek bintang
+            createStars();
+            
+            loadImagesFromStorage();
+            updateStats();
+            
+            browseBtn.addEventListener('click', () => fileInput.click());
+            
+            uploadArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                uploadArea.classList.add('active');
+            });
+            
+            uploadArea.addEventListener('dragleave', () => {
+                uploadArea.classList.remove('active');
+            });
+            
+            uploadArea.addEventListener('drop', (e) => {
+                e.preventDefault();
+                uploadArea.classList.remove('active');
+                handleFiles(e.dataTransfer.files);
+            });
+            
+            fileInput.addEventListener('change', () => {
+                handleFiles(fileInput.files);
+            });
+            
+            document.addEventListener('paste', (e) => {
+                const items = e.clipboardData.items;
+                for (let i = 0; i < items.length; i++) {
+                    if (items[i].type.indexOf('image') !== -1) {
+                        const file = items[i].getAsFile();
+                        if (file) {
+                            handleFiles([file]);
+                            break;
+                        }
+                    }
+                }
+            });
+            
+            copyAllBtn.addEventListener('click', copyAllLinks);
+            deleteAllBtn.addEventListener('click', deleteAllImages);
+            
+            function createStars() {
+                const starCount = 100;
+                for (let i = 0; i < starCount; i++) {
+                    const star = document.createElement('div');
+                    star.classList.add('star');
+                    
+                    // Random position
+                    star.style.left = `${Math.random() * 100}%`;
+                    star.style.top = `${Math.random() * 100}%`;
+                    
+                    // Random size
+                    const size = Math.random() * 3;
+                    star.style.width = `${size}px`;
+                    star.style.height = `${size}px`;
+                    
+                    // Random opacity
+                    star.style.opacity = Math.random() * 0.7 + 0.3;
+                    
+                    // Random animation delay
+                    star.style.animationDelay = `${Math.random() * 5}s`;
+                    
+                    starsContainer.appendChild(star);
+                }
+            }
+            
+            function loadImagesFromStorage() {
+                const storedImages = localStorage.getItem('uploadedImages');
+                if (storedImages) {
+                    uploadedImages = JSON.parse(storedImages);
+                    updateImageList();
+                }
+            }
+            
+            function saveImagesToStorage() {
+                localStorage.setItem('uploadedImages', JSON.stringify(uploadedImages));
+            }
+            
+            function updateStats() {
+                totalImages.textContent = uploadedImages.length;
+                
+                const today = new Date().toDateString();
+                const todayCount = uploadedImages.filter(img => {
+                    const imgDate = new Date(img.timestamp).toDateString();
+                    return imgDate === today;
+                }).length;
+                todayUploads.textContent = todayCount;
+                
+                // Simulasi perhitungan ukuran total (dalam MB)
+                const totalSizeMB = (uploadedImages.length * 0.5).toFixed(1);
+                totalSize.textContent = totalSizeMB + ' MB';
+            }
+            
+            function handleFiles(files) {
+                for (let i = 0; i < files.length; i++) {
+                    const file = files[i];
+                    if (!file.type.match('image.*')) {
+                        showNotification('Hanya file gambar yang diizinkan', 'error');
+                        continue;
+                    }
+                    
+                    const reader = new FileReader();
+                    reader.onload = (function(file) {
+                        return function(e) {
+                            uploadToImgBB(file, e.target.result);
+                        };
+                    })(file);
+                    reader.readAsDataURL(file);
+                }
+                fileInput.value = '';
+            }
+            
+            function uploadToImgBB(file, dataUrl) {
+                const tempId = 'temp-' + Date.now();
+                addTempImage(tempId, file.name, dataUrl);
+                
+                const formData = new FormData();
+                formData.append('image', dataUrl.split(',')[1]);
+                
+                fetch(`https://api.imgbb.com/1/upload?key=${apiKey}`, {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        removeTempImage(tempId);
+                        uploadedImages.unshift({
+                            id: data.data.id,
+                            name: file.name,
+                            preview: data.data.url,
+                            link: data.data.url,
+                            deleteUrl: data.data.delete_url,
+                            timestamp: Date.now(),
+                            isNew: true
+                        });
+                        saveImagesToStorage();
+                        updateImageList();
+                        updateStats();
+                        showNotification('Gambar berhasil diupload!', 'success');
+                        
+                        setTimeout(() => {
+                            const index = uploadedImages.findIndex(img => img.id === data.data.id);
+                            if (index !== -1) {
+                                uploadedImages[index].isNew = false;
+                                saveImagesToStorage();
+                                updateImageList();
+                            }
+                        }, 5000);
+                    } else {
+                        removeTempImage(tempId);
+                        showNotification('Upload gagal: ' + data.error.message, 'error');
+                    }
+                })
+                .catch(error => {
+                    removeTempImage(tempId);
+                    showNotification('Error saat upload gambar', 'error');
+                });
+            }
+            
+            function addTempImage(id, name, preview) {
+                const tempItem = document.createElement('div');
+                tempItem.className = 'image-item';
+                tempItem.id = id;
+                tempItem.innerHTML = `
+                    <img src="${preview}" alt="${name}" class="image-preview" style="opacity:0.7">
+                    <div class="image-link">
+                        <input type="text" value="Mengupload..." readonly style="color:#94a3b8">
+                        <button class="copy-btn" disabled>
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                    <div class="actions">
+                        <button class="btn btn-secondary" disabled>
+                            <i class="fas fa-eye"></i> Lihat
+                        </button>
+                        <button class="btn btn-danger" disabled>
+                            <i class="fas fa-trash"></i> Hapus
+                        </button>
+                    </div>
+                `;
+                
+                if (uploadedImages.length === 0) {
+                    emptyState.style.display = 'none';
+                }
+                imageList.insertBefore(tempItem, imageList.firstChild);
+            }
+            
+            function removeTempImage(id) {
+                const tempElement = document.getElementById(id);
+                if (tempElement) {
+                    tempElement.remove();
+                }
+            }
+            
+            function updateImageList() {
+                imageList.innerHTML = '';
+                
+                if (uploadedImages.length === 0) {
+                    emptyState.style.display = 'block';
+                    imageList.appendChild(emptyState);
+                    return;
+                }
+                
+                emptyState.style.display = 'none';
+                uploadedImages.sort((a, b) => b.timestamp - a.timestamp);
+                
+                uploadedImages.forEach(image => {
+                    const imageItem = document.createElement('div');
+                    imageItem.className = 'image-item';
+                    imageItem.style.position = 'relative';
+                    
+                    let newBadge = '';
+                    if (image.isNew) {
+                        newBadge = '<div class="new-badge">BARU</div>';
+                    }
+                    
+                    imageItem.innerHTML = `
+                        ${newBadge}
+                        <img src="${image.preview}" alt="${image.name}" class="image-preview">
+                        <div class="image-link">
+                            <input type="text" value="${image.link}" readonly>
+                            <button class="copy-btn" data-link="${image.link}">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <div class="actions">
+                            <button class="btn btn-secondary" onclick="window.open('${image.link}', '_blank')">
+                                <i class="fas fa-eye"></i> Lihat
+                            </button>
+                            <button class="btn btn-danger" data-id="${image.id}">
+                                <i class="fas fa-trash"></i> Hapus
+                            </button>
+                        </div>
+                    `;
+                    
+                    imageList.appendChild(imageItem);
+                });
+                
+                document.querySelectorAll('.copy-btn').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const link = this.getAttribute('data-link');
+                        copyToClipboard(link);
+                        showNotification('Link berhasil disalin!', 'success');
+                    });
+                });
+                
+                document.querySelectorAll('.btn-danger').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const id = this.getAttribute('data-id');
+                        deleteImage(id);
+                    });
+                });
+            }
+            
+            function deleteImage(id) {
+                uploadedImages = uploadedImages.filter(image => image.id !== id);
+                saveImagesToStorage();
+                updateImageList();
+                updateStats();
+                showNotification('Gambar berhasil dihapus', 'success');
+            }
+            
+            function deleteAllImages() {
+                if (uploadedImages.length === 0) {
+                    showNotification('Tidak ada gambar untuk dihapus', 'warning');
+                    return;
+                }
+                
+                if (confirm(`Hapus semua ${uploadedImages.length} gambar?`)) {
+                    uploadedImages = [];
+                    saveImagesToStorage();
+                    updateImageList();
+                    updateStats();
+                    showNotification('Semua gambar berhasil dihapus', 'success');
+                }
+            }
+            
+            function copyAllLinks() {
+                if (uploadedImages.length === 0) {
+                    showNotification('Tidak ada gambar untuk disalin', 'warning');
+                    return;
+                }
+                
+                const allLinks = uploadedImages.map(image => image.link).join('\n');
+                copyToClipboard(allLinks);
+                showNotification(`${uploadedImages.length} link berhasil disalin!`, 'success');
+            }
+            
+            function copyToClipboard(text) {
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+            }
+            
+            function showNotification(message, type = 'success') {
+                notificationText.textContent = message;
+                
+                if (type === 'error') {
+                    notification.className = 'notification error show';
+                } else if (type === 'warning') {
+                    notification.className = 'notification warning show';
+                } else {
+                    notification.className = 'notification success show';
+                }
+                
+                notificationProgress.style.width = '100%';
+                
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                    setTimeout(() => {
+                        notificationProgress.style.width = '0%';
+                    }, 300);
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>
