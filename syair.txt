@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SYAIR + Card Shio + Kemenangan + BBFS + BEBAS + Lokasi</title>
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #1a0b0b;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+  }
+
+  :root {
+    --main-card-width: 900px;
+    --main-card-padding: 120px;
+    --main-card-gap: 20px;
+    --compass-size: 240px;
+    --shio-card-width: 100%;
+    --shio-card-image-height: 250px;
+    --shio-card-padding: 12px;
+    --shio-card-gap: 10px;
+    --shio-title-size: 20px;
+    --shio-desc-size: 16px;
+    --main-red: #ff6666;
+  }
+
+  .main-card {
+    background: url('https://i.postimg.cc/Nj0GvQxd/3dcfb8b857d4c5a2a6e6e938d458ed22.jpg') no-repeat center center/cover;
+    border: 3px solid var(--main-red);
+    border-radius: 25px;
+    box-shadow: inset 0 0 25px var(--main-red), 0 0 30px var(--main-red);
+    padding: var(--main-card-padding);
+    width: var(--main-card-width);
+    display: flex;
+    flex-direction: column;
+    gap: var(--main-card-gap);
+    color: var(--main-red);
+    max-width: 95%;
+    box-sizing: border-box;
+  }
+
+  .syair-header,
+.compass-card,
+.extra-cards .card,
+.footer-card,
+.locations-card {
+  background: url('https://i.postimg.cc/Nj0GvQxd/3dcfb8b857d4c5a2a6e6e938d458ed22.jpg') center center / cover;
+  border: 2px solid var(--main-red);
+  border-radius: 20px;
+  box-shadow: inset 0 0 15px var(--main-red), 0 0 20px var(--main-red);
+  color: white ;
+}
+
+/* khusus SHIO tetap gelap */
+.shio-card {
+  background: rgba(40, 0, 0, 0.75);
+  border: 2px solid var(--main-red);
+  border-radius: 20px;
+  box-shadow: inset 0 0 15px var(--main-red), 0 0 20px var(--main-red);
+  color: var(--main-red);
+}
+  .syair-header {
+    padding: 15px;
+    text-align: center;
+    position: relative;
+    top: -8%;
+  }
+
+  .syair-header h2 {
+    margin: 0;
+    font-size: 30px;
+    text-shadow: 0 0 10px #ff4c4c;
+  }
+
+  .syair-header .date-text {
+    font-size: 27px;
+    text-shadow: 0 0 6px #ff4c4c;
+    margin-top: 5px;
+  }
+
+  .syair-header .syair-subtitle {
+    margin-top: 5px;
+    font-size: 22px;
+    font-weight: bold;
+    text-shadow: 0 0 10px #ff4c4c;
+  }
+
+  .divider { border-top: 2px solid var(--main-red); margin: 10px 0; }
+
+  .middle-section { display: flex; gap: 20px; }
+
+  .compass-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    position: relative;
+    left: -12%;
+  }
+
+  .compass-card {
+    position: relative;
+    width: var(--compass-size);
+    height: var(--compass-size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .compass-card img {
+    width: 80%;
+    height: 80%;
+    border-radius: 15px;
+    position: relative;
+    bottom: -6%;
+  }
+
+  .random-number {
+    position: absolute;
+    color: var(--main-red);
+    font-size: 28px;
+    font-weight: bold;
+    text-shadow: 0 0 8px #ff4c4c;
+  }
+
+  .top { top: 10px; left: 50%; transform: translateX(-50%); }
+  .bottom { bottom: 10px; left: 50%; transform: translateX(-50%); }
+  .left { left: 10px; top: 50%; transform: translateY(-50%); }
+  .right { right: 10px; top: 50%; transform: translateY(-50%); }
+
+  .shio-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* biar isi tetap di tengah */
+  padding: var(--shio-card-padding);
+  gap: var(--shio-card-gap);
+  width: 300px;    /* atur lebar manual */
+  height: 300px;   /* atur tinggi manual */
+  position: relative;
+  right: -12%;
+}
+
+  .shio-image {
+  width: 250px;     /* lebar manual */
+  height: 300px;    /* tinggi manual */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 12px;
+}
+
+  .shio-info h2 {
+    margin: 0;
+    font-size: var(--shio-title-size);
+    text-shadow: 0 0 10px #ff4c4c;
+  }
+
+  .shio-info p {
+    font-size: var(--shio-desc-size);
+    margin: 5px 0 0 0;
+  }
+
+  .extra-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .extra-cards .card {
+    text-align: center;
+    padding: 12px 20px;
+    width: var(--compass-size);
+  }
+
+  .extra-cards h3 {
+    margin: 0;
+    font-size: 25px;
+    text-shadow: 0 0 6px #ff4c4c;
+  }
+
+  .extra-cards p {
+    margin: 5px 0 0 0;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .footer-card {
+    padding: 15px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    bottom: -2%;
+  }
+
+  .locations-card {
+    margin-top: 20px;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .locations-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+    text-shadow: 0 0 8px #ff4c4c;
+  }
+
+  .locations-list span {
+    background: rgba(255, 60, 60, 0.2);
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 16px;
+    box-shadow: 0 0 8px #ff4c4c;
+  }
+  .link-tvtoto-outside {
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: gold;
+  text-align: center;
+  text-shadow: 0 0 10px #ffd700;
+}
+</style>
+</head>
+<body>
+
+<div class="main-card">
+  <!-- SYAIR -->
+  <div class="syair-header">
+    <h2>SYAIR </h2>
+    <img src="https://i.postimg.cc/kGrtX3RW/Sleekshot-2025-11-12-00-47-19-Photoroom.png" alt> 
+    <div class="date-text" id="currentDate"></div>
+    <p class="syair-subtitle">RASAKAN SENSASI SYAIRNYA & KEMENANGAN NYATA</p>
+  </div>
+
+  <!-- Middle section -->
+  <div class="middle-section">
+    <!-- Compass & BBFS/BEBAS -->
+    <div class="compass-column">
+      <div class="compass-card">
+        <img src="https://i.postimg.cc/J02cS7xF/POSTINGAN-KEMENANGAN-35.png" alt="Kemenangan">
+        <div class="random-number top" id="numTop">0</div>
+        <div class="random-number bottom" id="numBottom">0</div>
+        <div class="random-number left" id="numLeft">0</div>
+        <div class="random-number right" id="numRight">0</div>
+      </div>
+
+      <div class="extra-cards">
+        <div class="card">
+          <h3>BBFS</h3>
+          <p id="bbfsNumbers">1234567</p>
+        </div>
+        <div class="card">
+          <h3>BEBAS</h3>
+          <p id="bebasNumbers">1/1</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Shio card -->
+    <div class="shio-card" id="shioCard">
+      <div class="shio-image" id="shioImage"></div>
+      <div class="shio-info">
+        <h2 id="shioName">SHIO</h2>
+        <p id="shioDesc"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer-card" id="footer"></div>
+  <div class="link-tvtoto-outside">LINKLIST.BIO/TVTOTO</div>
+  <!-- Lokasi Terpopuler -->
+  <div class="locations-card">
+    <h3>PASARAN</h3>
+    <div class="locations-list" id="locationsList"></div>
+  </div>
+</div>
+
+<script>
+  // Tanggal otomatis
+  function updateDate() {
+    const today = new Date();
+    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+    document.getElementById('currentDate').innerText = today.toLocaleDateString('id-ID', options);
+  }
+
+  // Footer syair
+  const footerTexts = [
+    `Rajin-rajinlah beribadah<br>Jangan lupa salat<br>Dan perbanyak zakat<br>Untuk bekal akhirat`,
+    `Dalam malam yang kelam, rindu membeku<br>Kesedihan menari di antara bayang-bayang<br>`,
+    'Dalam malam yang kelam, langit berurai<br>Rindu membeku dalam angin yang merintih<br>Hati terbelah, diwarnai senyap pilu<br>Kesedihan menari di antara bayang-bayang<br>',
+    'Di ujung hari yang hampa, bintang meredup<br>Menyisakan jejak air mata di cakrawala<br>Cinta yang hilang, seperti debu tertiup<br>Menghilang dalam ruang yang tak bertepi<br>',
+'Setiap suara angin, menyimpan cerita<br>Tentang harapan yang melayang jauh<br>Di balik awan, gemericik duka<br>Mengiringi langkah yang penuh ragu<br>',
+'Di tengah tawa, air mata menari lembut<br>Senyum yang tulus, membasahi pipi yang cerah<br>Kebahagiaan mengalir dalam setiap tetes<br>Menjadi pelangi setelah hujan yang reda<br>',
+'Ketika harapan menjadi nyata, dan mimpi terwujud<br>Rasa syukur menjadikan air mata sebagai saksi<br>Bahagia mengalir, seiring waktu yang berharga<br>Menyatukan jiwa dalam pelukan cinta yang abadi<br>',
+'Di ujung langit, matahari terbenam lembut<br>Menyeruput warna, melukis cakrawala malam<br>Angin berbisik lembut di antara pepohonan<br>Menyapu jiwa, menenangkan dengan kasih sayang<br>',
+'Bunga-bunga menari dalam embun pagi<br>Keharuman mereka menggema di udara<br>Setiap kelopak, seolah membawa pesan cinta<br>Mengisi hari dengan keajaiban yang nyata<br>',
+'Gunung menjulang megah, penuh misteri<br>Berkilau di bawah cahaya bulan yang lembut<br>Sungai mengalir tenang, penuh cerita<br>Menyanyikan lagu yang tak pernah pudar<br>',
+'Dalam setiap detik, dalam setiap helaan napas<br>Tersimpan keindahan dunia yang abadi<br>Hati yang luluh dalam kerinduan ini<br>Merasakan cinta semesta yang tak pernah mati<br>',
+'Seorang gadis cantik jelita<br>Telah melintas di depan mata<br>Membuat diri ini terpana<br>Dan juga mendambakan sosoknya<br>',
+'Wajahnya selalu ada dibenak<br>Membuat tidurku jadi tak nyenyak<br>Apakah ini adalah cinta<br>Atau sekadar terkagum saja<br>',
+'Namun dalam setiap detik, setiap helaan napas<br>Ada kerinduan yang membekas di hati<br>Seakan jauh di sana, ada tempat yang hilang<br>Tempat di mana cinta dan mimpi bertemu<br>',
+'Rindu ini mengalir seperti aliran sungai<br>Tak henti mencari, tak pernah puas<br>Dalam keindahan dunia yang abadi<brKuharapkan ada satu tempat untuk kita berdua<br>',
+'Cinta yang ada di ini dada<br>Kian merekah bagai sang bunga<br>Yang telah merekahkan kelopaknya<br>Yang punya warna indah di mata<br>',
+'Kalau mencinta jangan memaksa<br>Supaya tidak saling menyiksa<br>Mencintalah dengan seikhlas rasa<br>Supaya tidak saling menyiksa<br>',
+'Jangan engkau buta dalam mencinta<br>Agar kau tidak membabi buta<br>Dalam mencintai sosoknya<br>Dalam mencemburi sosoknya<br>',
+'Jikalau dia memang jodohnya<br>Pastilah nanti akan berjumpa<br>Jikalau memang bukan jodohnya<br>Marilah coba ikhlaskan saja<br>',
+'Wahai kau kekasih yang tercinta<br>Dimanakah engkau kini berada<br>Daku sangat ingin kita berjumpa<br>Dan bercanda tawa bersama-sama<br>',
+'Akan kupanjatkan sebuah doa<br>Untuk dirinya yang kucinta<br>Semoga dia selalu bahagia<br>Dan berada dalam lindungan-Nya<br>',
+'Aku diam bukan karena tak cinta<br>Aku hanya sedang memendam rasa<br>Yang belum saatnya diungkapkan<br>Yang belum saatnya dicurahkan<br>',
+'Jangan mencintai karena materi<br>Nanti kita akan jadi merugi<br>Jangan pula cinta karena rupa<br>Nanti cinta kita akan mudah sirna<br>',
+'Jika dia memang bukan jodohnya<br>Mari diikhlaskan saja dirinya<br>Moga nanti akan kita mendapat<br>Pengganti yang jauh lebih tepat<br>',
+    `Di ujung hari, bintang meredup<br>Cinta yang hilang menghilang dalam ruang tak bertepi`
+  ];
+
+  function randomFooter() {
+    const text = footerTexts[Math.floor(Math.random() * footerTexts.length)];
+    document.getElementById("footer").innerHTML = text;
+  }
+
+  // Shio
+  const shioData = [
+  { name: 'SHIO ULAR', url: 'https://i.postimg.cc/MHf4mQ6T/ular-Photoroom.png', desc: ["SUKA NGINTIP DARI BALIK BATU KAYAK DETEKTIF LICIN","BERGERAK TANPA KAKI","GESIT BANGET","REPTIL BERDARAH DINGIN"] },
+  { name: 'SHIO NAGA', url: 'https://i.postimg.cc/cJqYhX3M/naga-Photoroom.png', desc: ["BERSIN API PAS FLU","PUNYA SISIK, SAYAP, TARING, DAN NAFAS API","SIMBOL KEKUATAN DAN KEBERUNTUNGAN","GAGAH DAN PEMBERANI"] },
+  { name: 'SHIO KELINCI', url: 'https://i.postimg.cc/L89crhvr/069c4397a9288af04691aa1e6ca0c39a-Photoroom.png', desc: ["KUPING PANJANG DAN SUKA LOMPAT-LOMPAT","GIGI DEPANNYA TERUS TUMBUH","BERKEMBANG BIAK CEPAT","KUPING PANJANG"] },
+  { name: 'SHIO HARIMAU', url: 'https://i.postimg.cc/bw0BNPVb/image-Photoroom.png', desc: ["MIRIP KUCING RUMAHAN","PUNYA BELANG UNIK DI TUBUH","KARNIVORA PUNCAK RANTAI MAKANAN","PEMAKAN DAGING"] },
+  { name: 'SHIO KERBAU', url: 'https://i.postimg.cc/SxPTQGcw/17deabf0d02c1a1ef05e0d92fc47b53b-Photoroom.png', desc: ["SUKA MANDI LUMPUR","BERTANDUK BESAR MELENGKUNG","LAMBAN TAPI KUAT","BANTU PEKERJA DI SAWAH"] },
+  { name: 'SHIO TIKUS', url: 'https://i.postimg.cc/VLLDjhRh/572ef90cf873cf0bae134fb10b9e9ce6-Photoroom.png', desc: ["SUKA SEMBUNYI","KATANYA SIH SUKA KEJU!?","SUKA MUNCUL DI FILM KARTUN","PENGERAT"] },
+  { name: 'SHIO BABI', url: 'https://i.postimg.cc/0Q0bncnq/988651d0fb546b5ed57fa5813fce79de-Photoroom.png', desc: ["MAKAN TIDUR","PUNYA PENCIUMAN TAJAM","SUARANYA 'NGOK NGOK'","SUKA DIPANGGIL 'ICA'"] },
+  { name: 'SHIO ANJING', url: 'https://i.postimg.cc/DZ6wLmfK/26edd62a40024a37605788aa04330308-Photoroom.png', desc: ["PENURUT","PENCIUMANNYA TAJAM","BISA SENYUM SAMPAI NGAMBEK","TEMAN BAIK MANUSIA"] },
+  { name: 'SHIO AYAM', url: 'https://i.postimg.cc/BvcSftKP/ebe301829765054ef33f8416cf6e1685-Photoroom.png', desc: ["SIJANTAN BERKOKOK","BETINANYA BERTELUR","BERKOKOK","PUNYA SAYAP TAPI GAK BISA TERBANG"] },
+  { name: 'SHIO MONYET', url: 'https://i.postimg.cc/vmHYMbLK/c2364d161855434c28e5015e412ac631-Photoroom.png', desc: ["SUKA USIL","BISA MENIRU PERILAKU MANUSIA","PRIMATA SOSIAL YANG PINTAR","HABITATNYA BERKELOMPOK"] },
+  { name: 'SHIO KAMBING', url: 'https://i.postimg.cc/tJhQWMNW/25cba09984349edc203468f9d062bb77-Photoroom.png', desc: ["SUKA NYNERUDUK","SUKA RUMPUT TETANGGA","PUPIL MATANYA HORIZONTAL","KAKINYA EMPAT"] },
+  { name: 'SHIO KUDA', url: 'https://i.postimg.cc/MKDgwRs5/49858cc15abf0f6cb87d5acf1df06753-Photoroom.png', desc: ["BISA TIDUR SAMBIL BERDIRI","KAKINYA KUAT DAN LINCAH","PUNYA PONI ALAMI KAYAK MODEL","LARINYA CEPAT"] }
+];
+
+  function randomShio() {
+    const shio = shioData[Math.floor(Math.random() * shioData.length)];
+    document.getElementById("shioName").innerText = shio.name;
+    const randomDesc = shio.desc[Math.floor(Math.random() * shio.desc.length)];
+    document.getElementById("shioDesc").innerHTML = randomDesc;
+    document.getElementById("shioImage").style.backgroundImage = `url(${shio.url})`;
+  }
+
+  // Compass angka
+  function randomNumbers() {
+    document.getElementById("numTop").innerText = Math.floor(Math.random()*10);
+    document.getElementById("numBottom").innerText = Math.floor(Math.random()*10);
+    document.getElementById("numLeft").innerText = Math.floor(Math.random()*10);
+    document.getElementById("numRight").innerText = Math.floor(Math.random()*10);
+  }
+
+  // BBFS & BEBAS acak tiap refresh
+  function updateBBFS() {
+    let numbers = '';
+    for (let i = 0; i < 7; i++) {
+      numbers += Math.floor(Math.random()*10);
+    }
+    document.getElementById('bbfsNumbers').innerText = numbers;
+  }
+
+  function updateBEBAS() {
+    const num1 = Math.floor(Math.random()*10);
+    const num2 = Math.floor(Math.random()*10);
+    document.getElementById('bebasNumbers').innerText = `${num1}/${num2}`;
+  }
+
+  // Lokasi acak
+  const locations = ['POIPET','NEVADA','BRUNEI','CHELSEA','HUAHIN','BANGKOK','TOTOMALI','TOTOMACAU', 'HOKIDRAW','SYDNEY','KINGKONG','TOTO CAMBODIA','HONGKONG','MAGNUM4D'];
+  function renderRandomLocation() {
+    const container = document.getElementById('locationsList');
+    container.innerHTML = '';
+    const randomLoc = locations[Math.floor(Math.random() * locations.length)];
+    const span = document.createElement('span');
+    span.innerText = randomLoc;
+    container.appendChild(span);
+  }
+
+  // Init
+  updateDate();
+  randomShio();
+  randomFooter();
+  randomNumbers();
+  updateBBFS();
+  updateBEBAS();
+  renderRandomLocation();
+  setInterval(randomNumbers, 1000);
+</script>
+</body>
+</html>
